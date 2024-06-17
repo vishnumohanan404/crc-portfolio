@@ -1,6 +1,6 @@
 # [Cloud Resume Challenge](https://cloudresumechallenge.dev/docs/the-challenge/aws/)
 
-This is my portfolio website created using react app as part of the community build cloud resume challenge.
+This is my portfolio website created using react app as part of the cloud resume challenge by [Forrest Brazeal](https://forrestbrazeal.com/).
 By the end of this challenge I will have my portfolio website built and deployed using the AWS ecosystem.
 
 
