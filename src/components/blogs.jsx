@@ -7,6 +7,7 @@ const fetchBlogs = async () => {
             posts(first: 5) {
                 edges {
                     node {
+                        id
                         title
                         brief
                         slug
