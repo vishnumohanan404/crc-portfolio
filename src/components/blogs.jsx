@@ -4,7 +4,7 @@ const fetchBlogs = async () => {
   const query = `
     query Publication($host: String = "vishnumohanan.hashnode.dev") {
         publication(host: $host) {
-            posts(first: 10) {
+            posts(first: 5) {
                 edges {
                     node {
                         title
@@ -44,11 +44,11 @@ const Blogs = () => {
       {posts.map(({ node }) => (
         <div className="flex justify-between flex-col gap-1" key={node.url}>
           <p className="font-semibold text-muted-foreground">
-            <a className="text-blue-500" href={node.key}>
+            <a className="text-blue-500 cursor-pointer" href={node.url}>
               {node.title}
             </a>
           </p>
-          <p className="font-extralight text-sm">{node.brief}</p>
+          <p className="font-extralight text-sm">{node.subtitle}</p>
         </div>
       ))}
     </div>
