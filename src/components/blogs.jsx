@@ -4,7 +4,7 @@ const fetchBlogs = async () => {
   const query = `
     query Publication($host: String = "vishnumohanan.hashnode.dev") {
         publication(host: $host) {
-            posts(first: 5) {
+            posts(first: 4) {
                 edges {
                     node {
                         title
