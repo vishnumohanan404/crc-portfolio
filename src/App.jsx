@@ -40,7 +40,7 @@ function App() {
               <div>
                 <p className="font-sans">Vishnu Mohan</p>
                 <p className="font-sans font-light text-sm text-gray-500">
-                  Software Engineer, DevOps | Ex - Rhombuz
+                  Software Engineer, DevOps | Ex - Rhombuz.io
                 </p>
               </div>
               <div>
