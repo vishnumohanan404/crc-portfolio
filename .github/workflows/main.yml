@@ -3,10 +3,7 @@ name: Deploy to S3
 on:
   push:
     branches: [ main ]  # Trigger on pushes to the main branch
-  pull_request:
-    branches: [ main ]  # Trigger on pr merge to the main branch
-    types:
-      - closed
+
 
 jobs:
   deploy:
