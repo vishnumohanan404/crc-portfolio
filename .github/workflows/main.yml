@@ -20,7 +20,7 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ap-south-1  # Update with your region
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}  # Update with your region
         run: |
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
@@ -30,4 +30,10 @@ jobs:
         run: npm run build  # Example for a Node.js project
 
       - name: Sync website to S3  # Upload the built content to S3 bucket
-        run: aws s3 sync dist s3://vishnuverse.xyz  # Replace with your bucket namex
+        run: aws s3 sync dist s3://vishnuverse.xyz  # Replace with your bucket name
+      - name: Invalidate CloudFront Cache  # New step
+        uses: aws-actions/invalidate-aws-cloudfront@v4  # Update version if needed
+        with:
+          distribution-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+          paths: "/*"  # Invalidate all paths (adjust if needed)
+          aws-region: ${{ secrets.AWS_REGION }}  # Update with your region
