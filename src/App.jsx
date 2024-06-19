@@ -5,32 +5,7 @@ import Contact from "./components/contact";
 import Projects from "./components/projects";
 
 function App() {
-  const [location, setLocation] = useState("");
-  function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showLocation);
-    } else {
-      console.log("Geolocation is not supported by this browser.");
-    }
-  }
-  function showLocation(position) {
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
 
-    // Replace with actual geo-lookup logic to determine city/country
-    // (This is a simplified example for demonstration purposes)
-    if (latitude > 24 && latitude < 26 && longitude > 54 && longitude < 56) {
-      setLocation("Dubai");
-    } else if (
-      latitude > 20 &&
-      latitude < 35 &&
-      longitude > 70 &&
-      longitude < 90
-    ) {
-      setLocation("India");
-    } 
-  }
-  getLocation();
   return (
     <div className="relative h-[100vh] w-[100vw] bg-slate-50 overflow-hidden">
       <div className="absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]">
@@ -51,7 +26,7 @@ function App() {
                   className="font-sans text-sm text-gray-500"
                   id="locationField"
                 >
-                  {location}
+                  India, Remote
                 </p>
               </div>
             </div>
