@@ -4,13 +4,13 @@ on:
   push:
     branches: [ main ]  # Trigger on pushes to the main branch
   pull_request:
-    branches: [ main ]
+    branches: [ main ]  # Trigger on pr merge to the main branch
     types:
       - closed
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest  # You can choose a different runner
+    runs-on: ubuntu-latest 
 
     steps:
       - uses: actions/checkout@v3  # Checkout code from your repository
@@ -22,17 +22,18 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}  # Update with your region
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
         run: |
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
           aws configure set region $AWS_DEFAULT_REGION
 
-      - name: Build your website  # Replace with your build command
-        run: npm run build  # Example for a Node.js project
+      - name: Build your website
+        run: npm run build 
 
-      - name: Sync website to S3  # Upload the built content to S3 bucket
-        run: aws s3 sync dist s3://vishnuverse.xyz  # Replace with your bucket name
+      - name: Sync build dir to S3  
+        run: aws s3 sync dist s3://vishnuverse.xyz 
+
       - name: Invalidate CloudFront Cache  # New step
         uses: aws-actions/invalidate-aws-cloudfront@v4  # Update version if needed
         with:
