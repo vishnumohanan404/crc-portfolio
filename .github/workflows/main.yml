@@ -13,8 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3  # Checkout code from your repository
 
-      - name: Install Vite globally
-        run: npm install -g vite
+      - name: Install packages
+        run: npm install
 
       - name: Configure AWS credentials  # Add AWS credentials securely
         env:
