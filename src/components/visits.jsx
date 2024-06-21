@@ -2,21 +2,11 @@ import React, { useEffect, useState } from "react";
 
 const Visits = () => {
   const [count, setCount] = useState("");
+  console.log("hellop");
   useEffect(() => {
-    const fetchVisits = async () => {
-      const data = await fetch(
-        import.meta.env.VITE_API_GATEWAY_ENDPOINT + "/visitors",
-        {
-          method: "GET",
-        }
-      );
-      const countObj = await new Response(data.body).json();
-      setCount(countObj.count.N);
-    };
-    fetchVisits();
-    // update logic
-    let data = sessionStorage.getItem("visited");
-    if (!data) {
+    console.log("Useeffect ran");
+    if (!window.sessionStorage.getItem("visited")) {
+      window.sessionStorage.setItem("visited", true);
       const fetchUpdate = async () => {
         const updateCount = await fetch(
           import.meta.env.VITE_API_GATEWAY_ENDPOINT + "/visitors",
@@ -28,9 +18,19 @@ const Visits = () => {
         setCount(countObj.count);
       };
       fetchUpdate();
+    } else {
+      const fetchCount = async () => {
+        const updateCount = await fetch(
+          import.meta.env.VITE_API_GATEWAY_ENDPOINT + "/visitors",
+          {
+            method: "GET",
+          }
+        );
+        const countObj = await new Response(updateCount.body).json();
+        setCount(countObj.count.N);
+      };
+      fetchCount();
     }
-
-    sessionStorage.setItem("visited", true);
   }, []);
   return (
     <div className="w-min m-auto rounded-3xl p-px bg-gradient-to-b from-blue-300 to-pink-300 dark:from-blue-800 dark:to-purple-800 ">
