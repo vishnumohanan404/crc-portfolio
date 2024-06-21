@@ -14,6 +14,24 @@ const Visits = () => {
       setCount(countObj.count);
     };
     fetchVisits();
+    // update logic
+    let data = sessionStorage.getItem("visited");
+    if (!data) {
+      const fetchUpdate = async () => {
+        const updateCount = await fetch(
+          import.meta.env.VITE_API_GATEWAY_ENDPOINT + "/visitors",
+          {
+            method: "PUT",
+          }
+        );
+        const countObj = await new Response(updateCount.body).json();
+        console.log(countObj);
+        setCount(countObj.count);
+      };
+      fetchUpdate();
+    }
+
+    sessionStorage.setItem("visited", true);
   }, []);
   return (
     <div className="w-min m-auto rounded-3xl p-px bg-gradient-to-b from-blue-300 to-pink-300 dark:from-blue-800 dark:to-purple-800 ">
