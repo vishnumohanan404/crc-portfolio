@@ -16,7 +16,6 @@ const Visits = () => {
     fetchVisits();
     // update logic
     let data = sessionStorage.getItem("visited");
-    console.log(data);
     if (!data) {
       const fetchUpdate = async () => {
         const updateCount = await fetch(
@@ -26,16 +25,13 @@ const Visits = () => {
           }
         );
         const countObj = await new Response(updateCount.body).json();
-        console.log(countObj);
         setCount(countObj.count);
       };
       fetchUpdate();
     }
 
     sessionStorage.setItem("visited", true);
-    console.log("useEffect ran");
   }, []);
-  console.log("Visit", count);
   return (
     <div className="w-min m-auto rounded-3xl p-px bg-gradient-to-b from-blue-300 to-pink-300 dark:from-blue-800 dark:to-purple-800 ">
       <div className="rounded-[calc(1.5rem-1px)] p-1 py-0 bg-white dark:bg-gray-900">
