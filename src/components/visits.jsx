@@ -11,7 +11,7 @@ const Visits = () => {
         }
       );
       const countObj = await new Response(data.body).json();
-      setCount(countObj.count);
+      setCount(countObj.count.N);
     };
     fetchVisits();
     // update logic
@@ -25,7 +25,6 @@ const Visits = () => {
           }
         );
         const countObj = await new Response(updateCount.body).json();
-        console.log(countObj);
         setCount(countObj.count);
       };
       fetchUpdate();
@@ -37,7 +36,7 @@ const Visits = () => {
     <div className="w-min m-auto rounded-3xl p-px bg-gradient-to-b from-blue-300 to-pink-300 dark:from-blue-800 dark:to-purple-800 ">
       <div className="rounded-[calc(1.5rem-1px)] p-1 py-0 bg-white dark:bg-gray-900">
         <span className="text-nowrap text-muted-foreground font-light text-sm px-1">
-          {count.N} Visits
+          {count} Visits
         </span>
       </div>
     </div>
