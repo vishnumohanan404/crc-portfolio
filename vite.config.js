@@ -17,13 +17,16 @@ export default defineConfig({
         entryFileNames: `assets/[name].js`,
         assetFileNames: (assetInfo) => {
           // Customize filename based on asset type (e.g., .css)
-          if (assetInfo.name.endsWith('.css')) {
-            return `assets/[name].css`;  // Fixed name for CSS
+          if (assetInfo.name.endsWith(".css")) {
+            return `assets/[name].css`; // Fixed name for CSS
           } else {
             return `assets/[name].[ext]`; // Default behavior for other assets
           }
         },
       },
     },
+  },
+  preview: {
+    port: 5173,
   },
 });
