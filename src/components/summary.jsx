@@ -8,17 +8,16 @@ const Summary = () => {
       </div>
       <div className="p-3  text-gray-600  font-extralight text-sm">
         <p className="font-sans">
-          My journey began in 2021, as a software developer for a startup,
-          working on JavaScript. Later on I moved to spend my time working and
-          building a profile on DevOps realm.
+          My journey began in 2021 as a software developer for a startup, where
+          I focused on JavaScript. Over time, I transitioned into the DevOps
+          realm, dedicating my efforts to building my profile in this field.
         </p>
         <br />
         <p>
-          During my last job I built an appetite for the
-          <span className="font-semibold"> DevOps</span> culture and software
-          development lifecycle at one of the big tech client which I worked
-          for, hence decided to switch from{" "}
-          <span className="font-medium italic">dev</span> to
+          In my last job, I developed a strong interest in the DevOps culture
+          and the software development lifecycle while working for a major tech
+          client. This experience inspired me to switch from
+          <span className="font-medium italic"> dev</span> to
           <span className="font-medium italic"> operations</span>
         </p>
       </div>
