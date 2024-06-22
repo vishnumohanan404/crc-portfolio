@@ -3,6 +3,7 @@ import "./App.css";
 import Bio from "./components/bio";
 import Blogs from "./components/blogs";
 import Contact from "./components/contact";
+import Education from "./components/education";
 import Projects from "./components/projects";
 import Summary from "./components/summary";
 import Visits from "./components/visits";
@@ -18,6 +19,7 @@ function App() {
             <Summary />
             <Projects />
             <Blogs />
+            <Education />
             <Contact />
           </div>
         </div>
