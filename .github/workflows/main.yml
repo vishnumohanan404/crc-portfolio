@@ -10,9 +10,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3 # Checkout code from your repository
-
+      
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
       - name: Install packages
         run: npm install
+        if: steps.cache.outputs == ''  # Only if cache miss
 
       - name: Configure AWS credentials # Add AWS credentials securely
         env:
