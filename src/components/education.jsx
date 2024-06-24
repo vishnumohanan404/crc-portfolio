@@ -21,7 +21,7 @@ const Education = () => {
         </div>
         <div className="flex justify-between flex-col gap-1">
           <p className="font-semibold text-muted-foreground">
-            Masters In Computer Applications (Online)
+            Masters In Computer Applications
             <span className="ml-2 text-xs text-gray-600">2024 - 2026</span>
           </p>
           <p className="font-extralight text-sm">
