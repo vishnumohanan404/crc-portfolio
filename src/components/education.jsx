@@ -13,7 +13,7 @@ const Education = () => {
             <span className="ml-2 text-xs text-gray-600">2016 - 2019</span>
           </p>
           <p className="font-extralight text-sm">
-            Acharya Institute of Graduate Studies
+            Acharya Institute of Graduate Studies{""}
             <span className="pl-2 ml-2 text-xs  border-l-2 border-l-gray-400">
               Bangalore University
             </span>
@@ -21,11 +21,11 @@ const Education = () => {
         </div>
         <div className="flex justify-between flex-col gap-1">
           <p className="font-semibold text-muted-foreground">
-            Masters In Computer Applications
+            Masters In Computer Applications{""}
             <span className="ml-2 text-xs text-gray-600">2024 - 2026</span>
           </p>
           <p className="font-extralight text-sm">
-            Online
+            Online{""}
             <span className="pl-2 ml-2 text-xs  border-l-2 border-l-gray-400">
               Amrita Vishwa Vidyapeetham University
             </span>
