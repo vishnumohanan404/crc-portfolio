@@ -1,5 +1,3 @@
-import React from "react";
-
 const Projects = () => {
   return (
     <div className="bg-white border-zinc-200 border rounded-lg flex flex-col">
@@ -7,22 +5,124 @@ const Projects = () => {
         <p className="font-sans font-medium ">Projects</p>
       </div>
       <div className="p-3  text-gray-600 flex flex-col gap-3">
-        {/* 1 */}
         <div className="flex justify-between flex-col gap-1">
           <p className="font-semibold text-muted-foreground">
-            Cloud Resume Challenge by Forrest Brazeal
-            {/* <span className="text-xs font-light ml-2 pl-1 border-l-2"> </span> */}
+            The Cloud Resume Challenge
           </p>
           <p className="font-extralight text-sm leading-relaxed">
-            The Cloud Resume Challenge involves tasks to enhance AWS skills,
-            using S3 and CloudFront for frontend hosting, Lambda and API Gateway
-            for the API, DynamoDB for the database, and CloudWatch for logging.
-            It also includes using Terraform for infrastructure and CI/CD for
-            automating deployments.
+            My attempt at the famous{" "}
+            <a
+              href="https://cloudresumechallenge.dev/docs/the-challenge/aws/"
+              className="text-blue-500 font-medium"
+            >
+              Cloud Resume Challenge
+            </a>{" "}
+            by
+            <a
+              href="https://forrestbrazeal.com/"
+              className="text-blue-500 font-medium"
+            >
+              {" "}
+              Forrest Brazeal
+            </a>{" "}
+            <br />
+            <span className="font-medium">Tools used:</span> Terraform, S3,
+            CloudFront, Lambda, API Gateway, DynamoDB, CloudWatch, CI/CD.
+          </p>
+          <div className="flex">
+            <a
+              className="text-xs font-light text-blue-500"
+              href="https://github.com/vishnumohanan404/crc-portfolio"
+            >
+              Github
+            </a>
+            <div className="border-l h-4 mx-2"></div>
+            <a
+              className="text-xs font-light text-blue-500"
+              href="https://vishnuverse.xyz/"
+            >
+              Live
+            </a>
+          </div>
+        </div>
+        <div className="flex justify-between flex-col gap-1">
+          <p className="font-semibold text-muted-foreground">
+            The K8s Resume Challenge
+          </p>
+          <p className="font-extralight text-sm leading-relaxed">
+            My attempt at the famous{" "}
+            <a
+              href="https://cloudresumechallenge.dev/docs/extensions/kubernetes-challenge/"
+              className="text-blue-500 font-medium"
+            >
+              K8s Resume Challenge
+            </a>{" "}
+            by
+            <a
+              href="https://forrestbrazeal.com/"
+              className="text-blue-500 font-medium"
+            >
+              {" "}
+              Forrest Brazeal
+            </a>{" "}
+            <br />
+            <span className="font-medium">Tools used:</span> Docker, Kubernetes,
+            AWS (EKS), Helm, Traefik-Ingress, Cert-Manager
+          </p>
+          <div className="flex">
+            <a
+              className="text-xs font-light text-blue-500"
+              href="https://github.com/vishnumohanan404/k8s-resume-chlg/tree/main"
+            >
+              Github
+            </a>
+          </div>
+        </div>
+        <div className="flex justify-between flex-col gap-1">
+          <p className="font-semibold text-muted-foreground">
+            FormInIt: A form builder app deployed on Civo Cluster
+          </p>
+          <p className="font-extralight text-sm leading-relaxed">
+            A simple modern form builder in MERN stack, advanced CICD, IaC and
+            Containerization practices
+            <br /> <span className="font-medium">Tools used:</span> Terraform,
+            Civo K8s, Traefik-Ingress, Cert-Manager, Prometheus.
+          </p>
+          <div className="flex">
+            <a
+              className="text-xs font-light text-blue-500"
+              href="https://github.com/vishnumohanan404/forminit"
+            >
+              Github
+            </a>
+            <div className="border-l h-4 mx-2"></div>
+            <a
+              className="text-xs font-light text-blue-500"
+              href="https://github.com/vishnumohanan404/forminit-infra"
+            >
+              Infra
+            </a>
+            <div className="border-l h-4 mx-2"></div>
+            <a
+              className="text-xs font-light text-blue-500"
+              href="https://forminit.vishnuverse.xyz/"
+            >
+              Live
+            </a>
+          </div>
+        </div>
+        <div className="flex justify-between flex-col gap-1">
+          <p className="font-semibold text-muted-foreground">
+            Full Stack Microservices App in GKE
+          </p>
+          <p className="font-extralight text-sm leading-relaxed">
+            A nodeJS full stack microservices app for ticket selling online.
+            <br /> <span className="font-medium">Tools used:</span> Terraform,
+            Docker, K8s, Cert-Manager, Nginx-Ingress, GitHub Actions
           </p>
           <a
             className="text-xs font-light text-blue-500"
-            href="https://github.com/vishnumohanan404/crc-portfolio"
+            href="https://github.com/vishnumohanan404/ticketing"
           >
             Github
           </a>
@@ -30,60 +130,34 @@ const Projects = () => {
         <div className="flex justify-between flex-col gap-1">
           <p className="font-semibold text-muted-foreground">
             Python App deployed in AWS using Terraform and Jenkins
-            {/* <span className="text-xs font-light ml-2 pl-1 border-l-2"> </span> */}
           </p>
           <p className="font-extralight text-sm leading-relaxed">
-            A Python application is deployed on AWS EC2 with an{" "}
-            <span className="font-medium">RDS</span> MySQL database. Terraform
-            provisions the infrastructure, and Jenkins handles CI/CD. The
-            application and Jenkins run on separate EC2 instances provisioned by
-            Terraform. The RDS instance is in a private subnet for security.
-            Additional technologies used include a
-            <span className="font-medium"> load balancer</span>, hosted zone,
-            certificate manager, and S3 for the Terraform backend.
+            A Python app on AWS EC2 connects to an{" "}
+            <span className="font-medium">RDS</span> database in a private
+            subnet <br /> <span className="font-medium">Tools used:</span>{" "}
+            Terraform, Jenkins, ALB, Route 53, AWS Certificate Manager, S3.
           </p>
-          <a
-            className="text-xs font-light text-blue-500"
-            href="https://github.com/vishnumohanan404/tfp1-infra/tree/main"
-          >
-            Github
-          </a>
+          <div>
+            <a
+              className="text-xs font-light text-blue-500 "
+              href="https://github.com/vishnumohanan404/tfp1-infra/tree/main"
+            >
+              Github
+            </a>
+          </div>
         </div>
-        {/* 2 */}
         <div className="flex justify-between flex-col gap-1">
           <p className="font-semibold text-muted-foreground">
             Terraform for AWS provisioning
-            {/* <span className="text-xs font-light ml-2 pl-1 border-l-2"> </span> */}
           </p>
           <p className="font-extralight text-sm leading-relaxed">
-            A React application deployed in AWS using terraform for
-            infrastructure provisioning, including security groups and ec2
-            instance. Jenkins for running multi-stage pipelines including{" "}
-            <span className="font-medium">SonarQube</span> and{" "}
-            <span className="font-medium">Trivy</span>
+            A React application deployed on AWS EC2 with security groups.
+            <br /> <span className="font-medium">Tools used:</span> Terraform,
+            Jenkins SonarQube, Trivy
           </p>
           <a
             className="text-xs font-light text-blue-500"
             href="https://github.com/vishnumohanan404/amazon-fe"
-          >
-            Github
-          </a>
-        </div>
-        {/* 3 */}
-        <div className="flex justify-between flex-col gap-1">
-          <p className="font-semibold text-muted-foreground">
-            Full Stack Microservices App in GKE
-          </p>
-          <p className="font-extralight text-sm leading-relaxed">
-            A nodeJS full stack microservices app for ticket selling online,
-            containerized using
-            <span className="font-medium"> Docker and Kubernetes</span> and
-            deployed in GKE with multi-stage pipelines for testing and building
-            using Github Actions
-          </p>
-          <a
-            className="text-xs font-light text-blue-500"
-            href="https://github.com/vishnumohanan404/ticketing"
           >
             Github
           </a>

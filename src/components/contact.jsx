@@ -1,5 +1,3 @@
-import React from "react";
-
 const Contact = () => {
   return (
     <div className="bg-white border-zinc-200 border rounded-lg flex flex-col">

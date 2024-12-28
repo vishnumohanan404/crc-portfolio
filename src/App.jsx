@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 import Bio from "./components/bio";
 import Blogs from "./components/blogs";
@@ -7,6 +6,7 @@ import Education from "./components/education";
 import Projects from "./components/projects";
 import Summary from "./components/summary";
 import Visits from "./components/visits";
+import Work from "./components/work";
 
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
               <Visits />
               <Summary />
               <Projects />
+              <Work />
               <Blogs />
               <Education />
               <Contact />
@@ -34,9 +35,7 @@ function App() {
                 <span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
                   OPEN FOR WORK
                 </span>
-                <p className="font-sans text-xs text-gray-500 hidden md:block">
-                  India, Remote
-                </p>
+                <p className="font-sans text-xs text-gray-500">India, Remote</p>
               </div>
               <Bio />
               <Visits />

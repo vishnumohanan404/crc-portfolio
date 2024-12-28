@@ -1,5 +1,3 @@
-import React from "react";
-
 const Education = () => {
   return (
     <div className="bg-white border-zinc-200 border rounded-lg flex flex-col">
@@ -14,7 +12,7 @@ const Education = () => {
           </p>
           <p className="font-extralight text-sm">
             Acharya Institute of Graduate Studies{""}
-            <span className="pl-2 ml-2 text-xs  border-l-2 border-l-gray-400">
+            <span className="pl-2 ml-2 text-xs  border-l-[1px] border-l-gray-300">
               Bangalore University
             </span>
           </p>
@@ -26,7 +24,7 @@ const Education = () => {
           </p>
           <p className="font-extralight text-sm">
             Online{""}
-            <span className="pl-2 ml-2 text-xs  border-l-2 border-l-gray-400">
+            <span className="pl-2 ml-2 text-xs  border-l-[1px] border-l-gray-300">
               Amrita Vishwa Vidyapeetham University
             </span>
           </p>
