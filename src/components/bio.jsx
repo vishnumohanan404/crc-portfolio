@@ -10,7 +10,6 @@ const Bio = () => {
       try {
         const response = await fetch("https://ipwho.is/");
         const data = await response.json();
-        console.log("data", data);
         setUserRegion(data.country);
       } catch (error) {
         console.error("Error detecting region:", error);
