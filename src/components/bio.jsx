@@ -1,24 +1,4 @@
-import { useEffect, useState } from "react";
-
 const Bio = () => {
-  const [userRegion, setUserRegion] = useState();
-
-  useEffect(() => {
-    console.log("User Agent:", navigator.language);
-
-    const detectRegion = async () => {
-      try {
-        const response = await fetch("https://ipwho.is/");
-        const data = await response.json();
-        setUserRegion(data.country);
-      } catch (error) {
-        console.error("Error detecting region:", error);
-        setUserRegion("India");
-      }
-    };
-
-    detectRegion();
-  }, []);
   return (
     <div className="bg-white border-zinc-200 border md:w-[80%] w-[100%] mx-auto p-6 py-3 rounded-full flex justify-between items-center">
       <div>
@@ -32,7 +12,7 @@ const Bio = () => {
           OPEN FOR WORK
         </span>
         <p className="font-sans text-xs text-gray-500 hidden md:block">
-          {userRegion && userRegion + ", "} Remote
+          India, Remote
         </p>
       </div>
     </div>
