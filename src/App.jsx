@@ -7,6 +7,7 @@ import Projects from "./components/projects";
 import Summary from "./components/summary";
 import Visits from "./components/visits";
 import Work from "./components/work";
+import { motion } from "framer-motion";
 
 function App() {
   return (
@@ -14,7 +15,12 @@ function App() {
       <div className="hidden md:block relative h-[100vh] w-[100vw] bg-slate-50 overflow-hidden">
         <div className="absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]">
           <div className="overflow-auto h-[100%] py-[10rem]">
-            <div className="mx-auto max-w-[670px] flex flex-col gap-10">
+            <motion.div
+              className="mx-auto max-w-[670px] flex flex-col gap-10"
+              initial="hidden"
+              whileInView="visible"
+              transition={{ staggerChildren: 0.04 }}
+            >
               <Bio />
               <Visits />
               <Summary />
@@ -23,7 +29,7 @@ function App() {
               <Blogs />
               <Education />
               <Contact />
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
