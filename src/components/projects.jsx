@@ -115,12 +115,12 @@ const Projects = () => {
               Infra
             </a>
             <div className="border-l h-4 mx-2"></div>
-            <a
+            {/* <a
               className="text-xs font-light text-blue-500"
               href="https://forminit.vishnuverse.xyz/"
             >
               Live
-            </a>
+            </a> */}
           </div>
         </div>
         <div className="flex justify-between flex-col gap-1">
