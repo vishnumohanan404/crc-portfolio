@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 import Bio from "./components/bio";
 import Blogs from "./components/blogs";
@@ -9,7 +10,69 @@ import Visits from "./components/visits";
 import Work from "./components/work";
 import { motion } from "framer-motion";
 
+const fetchBlogs = async () => {
+  const query = `
+    query Publication($host: String = "vishnumohanan.hashnode.dev") {
+        publication(host: $host) {
+            posts(first: 5) {
+                edges {
+                    node {
+                        id
+                        title
+                        brief
+                        slug
+                        url,
+                        subtitle
+                    }
+                }
+            }
+        }
+    }`;
+
+  const response = await fetch("https://gql.hashnode.com/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ query }),
+  });
+
+  const { data } = await response.json();
+  return data.publication.posts.edges;
+};
+
 function App() {
+  const [count, setCount] = useState("");
+
+  useEffect(() => {
+    const sessionData = sessionStorage.getItem("count");
+
+    // alert("Useeffect ran", sessionData);
+    if (sessionData) {
+      setCount(JSON.parse(sessionData));
+    } else {
+      (async () => {
+        const updateCount = await fetch(
+          import.meta.env.VITE_API_GATEWAY_ENDPOINT + "/visitors",
+          {
+            method: "PUT",
+          }
+        );
+        const countObj = await new Response(updateCount.body).json();
+        sessionStorage.setItem("count", JSON.stringify(countObj.count));
+        setCount(countObj.count);
+      })();
+    }
+  }, []);
+
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    const fetchAndSetBlogs = async () => {
+      const postsList = await fetchBlogs();
+      setPosts(postsList);
+    };
+    fetchAndSetBlogs();
+  }, []);
   return (
     <>
       <div className="hidden md:block relative h-[100vh] w-[100vw] bg-slate-50 overflow-hidden">
@@ -22,11 +85,11 @@ function App() {
               transition={{ staggerChildren: 0.04 }}
             >
               <Bio />
-              <Visits />
+              <Visits count={count} />
               <Summary />
               <Projects />
               <Work />
-              <Blogs />
+              <Blogs posts={posts} />
               <Education />
               <Contact />
             </motion.div>
@@ -44,10 +107,10 @@ function App() {
                 <p className="font-sans text-xs text-gray-500">India, Remote</p>
               </div>
               <Bio />
-              <Visits />
+              <Visits count={count} />
               <Summary />
               <Projects />
-              <Blogs />
+              <Blogs posts={posts} />
               <Education />
               <Contact />
             </div>

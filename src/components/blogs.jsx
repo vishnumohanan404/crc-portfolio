@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 
 const transition = { duration: 1, ease: [0.25, 0.1, 0.25, 1] };
 const variants = {
@@ -7,46 +6,8 @@ const variants = {
   visible: { filter: "blur(0)", transform: "translateY(0)", opacity: 1 },
 };
 
-const fetchBlogs = async () => {
-  const query = `
-    query Publication($host: String = "vishnumohanan.hashnode.dev") {
-        publication(host: $host) {
-            posts(first: 5) {
-                edges {
-                    node {
-                        id
-                        title
-                        brief
-                        slug
-                        url,
-                        subtitle
-                    }
-                }
-            }
-        }
-    }`;
-
-  const response = await fetch("https://gql.hashnode.com/", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ query }),
-  });
-
-  const { data } = await response.json();
-  return data.publication.posts.edges;
-};
-
-const Blogs = () => {
-  const [posts, setPosts] = useState([]);
-  useEffect(() => {
-    const fetchAndSetBlogs = async () => {
-      const postsList = await fetchBlogs();
-      setPosts(postsList);
-    };
-    fetchAndSetBlogs();
-  }, []);
+const Blogs = ({posts}) => {
+  
   return (
     <motion.div
       className="bg-white border-zinc-200 border rounded-lg flex flex-col"
