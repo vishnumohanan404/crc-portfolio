@@ -37,6 +37,7 @@ jobs:
       - name: Build your website
         env:
           VITE_API_GATEWAY_ENDPOINT: ${{ secrets.VITE_API_GATEWAY_ENDPOINT}}
+          VITE_GITHUB_TOKEN: ${{ secrets.VITE_GITHUB_TOKEN}}
         run: npm run build
 
       - name: Sync build dir to S3
