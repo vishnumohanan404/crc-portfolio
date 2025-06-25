@@ -81,7 +81,6 @@ export default function GitHubContributionHeatmap() {
           }}
           tooltipDataAttrs={(value) => {
             if (!value || !value.date) return null;
-            console.log("value :>> ", value);
             return {
               "data-tooltip": `${value.count} contributions on ${value.date}`,
             };
