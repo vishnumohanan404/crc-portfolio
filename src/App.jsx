@@ -4,29 +4,30 @@ import Bio from "./components/bio";
 import Blogs from "./components/blogs";
 import Contact from "./components/contact";
 import Education from "./components/education";
+import GitHubContributionHeatmap from "./components/gh-commit-graph";
 import Projects from "./components/projects";
 import Summary from "./components/summary";
 import Visits from "./components/visits";
 import Work from "./components/work";
 import { motion } from "framer-motion";
 
-const fetchBlogs = async () => {
+const fetchBlogsFromHost = async (host) => {
   const query = `
-    query Publication($host: String = "vishnumohanan.hashnode.dev") {
-        publication(host: $host) {
-            posts(first: 5) {
-                edges {
-                    node {
-                        id
-                        title
-                        brief
-                        slug
-                        url,
-                        subtitle
-                    }
-                }
+    query Publication($host: String!) {
+      publication(host: $host) {
+        posts(first: 5) {
+          edges {
+            node {
+              id
+              title
+              brief
+              slug
+              url
+              subtitle
             }
+          }
         }
+      }
     }`;
 
   const response = await fetch("https://gql.hashnode.com/", {
@@ -34,13 +35,19 @@ const fetchBlogs = async () => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ query }),
+    body: JSON.stringify({ query, variables: { host } }),
   });
 
   const { data } = await response.json();
-  return data.publication.posts.edges;
+  return data?.publication?.posts?.edges || [];
 };
 
+const fetchBlogs = async () => {
+  const hosts = ["k8s-resources.hashnode.dev", "vishnumohanan.hashnode.dev"];
+  const allPosts = await Promise.all(hosts.map(fetchBlogsFromHost));
+  // Flatten the result and return
+  return allPosts.flat();
+};
 function App() {
   const [count, setCount] = useState("");
 
@@ -87,6 +94,7 @@ function App() {
               <Bio />
               <Visits count={count} />
               <Summary />
+              <GitHubContributionHeatmap />
               <Projects />
               <Work />
               <Blogs posts={posts} />
@@ -106,9 +114,11 @@ function App() {
                 </span>
                 <p className="font-sans text-xs text-gray-500">India, Remote</p>
               </div>
+
               <Bio />
               <Visits count={count} />
               <Summary />
+              <GitHubContributionHeatmap />
               <Projects />
               <Blogs posts={posts} />
               <Education />
