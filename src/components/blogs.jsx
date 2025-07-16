@@ -1,3 +1,4 @@
+import { ExternalLinkIcon } from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
 
 const transition = { duration: 1, ease: [0.25, 0.1, 0.25, 1] };
@@ -6,8 +7,7 @@ const variants = {
   visible: { filter: "blur(0)", transform: "translateY(0)", opacity: 1 },
 };
 
-const Blogs = ({posts}) => {
-  
+const Blogs = ({ posts }) => {
   return (
     <motion.div
       className="bg-white border-zinc-200 border rounded-lg flex flex-col"
@@ -20,9 +20,14 @@ const Blogs = ({posts}) => {
       <div className="p-3  text-gray-600 flex flex-col gap-3">
         {posts.map(({ node }) => (
           <div className="flex justify-between flex-col gap-1" key={node.url}>
-            <p className="font-semibold text-muted-foreground">
-              <a className="text-blue-500 cursor-pointer" href={node.url}>
+            <p className="font-semibold text-muted-foreground hover:underline underline-offset-4">
+              <a
+                className="text-blue-500 cursor-pointer flex gap-2 items-center"
+                href={node.url}
+                target="_blank"
+              >
                 {node.title}
+                <ExternalLinkIcon />
               </a>
             </p>
             <p className="font-extralight text-sm">{node.subtitle}</p>
