@@ -17,7 +17,7 @@ const Work = () => {
       </div>
       <div className="p-3 space-y-2 text-gray-600  font-extralight text-sm">
         <p className="font-extralight text-sm">
-          Frontend Developer
+          Software Developer
           <span className="pl-2 ml-2 text-xs font-medium  border-l-[1px] border-l-gray-300">
             Rhombuz.io <span className="font-medium italic"> (2021-2023)</span>
           </span>
