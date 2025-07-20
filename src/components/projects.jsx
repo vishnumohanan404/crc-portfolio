@@ -18,50 +18,8 @@ const Projects = () => {
       </div>
       <div className="p-3  text-gray-600 flex flex-col gap-3">
         <div className="flex justify-between flex-col gap-1">
-          <p className="font-semibold text-muted-foreground">
-            The Cloud Resume Challenge
-          </p>
-          <p className="font-extralight text-sm leading-relaxed">
-            My attempt at the famous{" "}
-            <a
-              href="https://cloudresumechallenge.dev/docs/the-challenge/aws/"
-              className="text-blue-500 font-medium"
-            >
-              Cloud Resume Challenge
-            </a>{" "}
-            by
-            <a
-              href="https://forrestbrazeal.com/"
-              className="text-blue-500 font-medium"
-            >
-              {" "}
-              Forrest Brazeal
-            </a>{" "}
-            <br />
-            <span className="font-medium">Tools used:</span> Terraform, S3,
-            CloudFront, Lambda, API Gateway, DynamoDB, CloudWatch, CI/CD.
-          </p>
-          <div className="flex">
-            <a
-              className="text-xs font-light text-blue-500"
-              href="https://github.com/vishnumohanan404/crc-portfolio"
-              target="_blank"
-            >
-              Github
-            </a>
-            <div className="border-l h-4 mx-2"></div>
-            <a
-              className="text-xs font-light text-blue-500"
-              href="https://vishnuvw.xyz/"
-              target="_blank"
-            >
-              Live
-            </a>
-          </div>
-        </div>
-        <div className="flex justify-between flex-col gap-1">
-          <p className="font-semibold text-muted-foreground">
-            GitOps ArgoCD deployment on self hosted K8s with HPA in Hetzner VPS
+          <p className="font-semibold text-muted-foreground capitalize">
+            GitOps-Based K8s deployment on Hetzner VPS
           </p>
           <p className="font-extralight text-sm leading-relaxed">
             A three tier NodeJS application deployed in production grade
@@ -90,8 +48,8 @@ const Projects = () => {
           </div>
         </div>
         <div className="flex justify-between flex-col gap-1">
-          <p className="font-semibold text-muted-foreground">
-            Gitlab CI Pipeline with self hosted runner
+          <p className="font-semibold text-muted-foreground capitalize">
+            Gitlab CI Pipeline with self-hosted runner
           </p>
           <p className="font-extralight text-sm leading-relaxed">
             A complete GitOps friendly CI pipeline with enterprise ready
@@ -114,7 +72,7 @@ const Projects = () => {
           </div>
         </div>
         <div className="flex justify-between flex-col gap-1">
-          <p className="font-semibold text-muted-foreground">
+          <p className="font-semibold text-muted-foreground capitalize">
             24×7 Self-Hosted Homelab for Personal DevOps Stack
           </p>
           <p className="font-extralight text-sm leading-relaxed">
@@ -135,7 +93,49 @@ const Projects = () => {
           </div>
         </div>
         <div className="flex justify-between flex-col gap-1">
-          <p className="font-semibold text-muted-foreground">
+          <p className="font-semibold text-muted-foreground capitalize">
+            The Cloud Resume Challenge
+          </p>
+          <p className="font-extralight text-sm leading-relaxed">
+            My attempt at the famous{" "}
+            <a
+              href="https://cloudresumechallenge.dev/docs/the-challenge/aws/"
+              className="text-blue-500 font-medium"
+            >
+              Cloud Resume Challenge
+            </a>{" "}
+            by
+            <a
+              href="https://forrestbrazeal.com/"
+              className="text-blue-500 font-medium"
+            >
+              {" "}
+              Forrest Brazeal
+            </a>{" "}
+            <br />
+            <span className="font-medium">Tools used:</span> AWS S3,
+            CloudFront, Shield, Lambda, API Gateway, DynamoDB, CloudWatch, Terraform, Github Actions.
+          </p>
+          <div className="flex">
+            <a
+              className="text-xs font-light text-blue-500"
+              href="https://github.com/vishnumohanan404/crc-portfolio"
+              target="_blank"
+            >
+              Github
+            </a>
+            <div className="border-l h-4 mx-2"></div>
+            <a
+              className="text-xs font-light text-blue-500"
+              href="https://vishnuvw.xyz/"
+              target="_blank"
+            >
+              Live
+            </a>
+          </div>
+        </div>
+        <div className="flex justify-between flex-col gap-1">
+          <p className="font-semibold text-muted-foreground capitalize">
             Full Stack Microservices App in GKE
           </p>
           <p className="font-extralight text-sm leading-relaxed">
@@ -152,7 +152,7 @@ const Projects = () => {
           </a>
         </div>
         <div className="flex justify-between flex-col gap-1">
-          <p className="font-semibold text-muted-foreground">
+          <p className="font-semibold text-muted-foreground capitalize">
             Python App deployed in AWS using Terraform and Jenkins
           </p>
           <p className="font-extralight text-sm leading-relaxed">
@@ -182,7 +182,7 @@ const Projects = () => {
           </div>
         </div>
         <div className="flex justify-between flex-col gap-1">
-          <p className="font-semibold text-muted-foreground">
+          <p className="font-semibold text-muted-foreground capitalize">
             Terraform for AWS provisioning
           </p>
           <p className="font-extralight text-sm leading-relaxed">
