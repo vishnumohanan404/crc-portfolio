@@ -21,7 +21,7 @@ const fetchBlogsFromHost = async (host) => {
   const query = `
     query Publication($host: String!) {
       publication(host: $host) {
-        posts(first: 5) {
+        posts(first: 50) {
           edges {
             node {
               id
