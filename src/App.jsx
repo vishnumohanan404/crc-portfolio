@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import "./App.css";
 import Bio from "./components/bio";
 import Blogs from "./components/blogs";
@@ -17,75 +16,8 @@ const variants = {
   hidden: { filter: "blur(10px)", transform: "translateY(20%)", opacity: 0 },
   visible: { filter: "blur(0)", transform: "translateY(0)", opacity: 1 },
 };
-const fetchBlogsFromHost = async (host) => {
-  const query = `
-    query Publication($host: String!) {
-      publication(host: $host) {
-        posts(first: 50) {
-          edges {
-            node {
-              id
-              title
-              brief
-              slug
-              url
-              subtitle
-            }
-          }
-        }
-      }
-    }`;
 
-  const response = await fetch("https://gql.hashnode.com/", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ query, variables: { host } }),
-  });
-
-  const { data } = await response.json();
-  return data?.publication?.posts?.edges || [];
-};
-
-const fetchBlogs = async () => {
-  const hosts = ["k8s-resources.hashnode.dev", "vishnumohanan.hashnode.dev"];
-  const allPosts = await Promise.all(hosts.map(fetchBlogsFromHost));
-  // Flatten the result and return
-  return allPosts.flat();
-};
 function App() {
-  const [count, setCount] = useState("");
-
-  useEffect(() => {
-    const sessionData = sessionStorage.getItem("count");
-
-    // alert("Useeffect ran", sessionData);
-    if (sessionData) {
-      setCount(JSON.parse(sessionData));
-    } else {
-      (async () => {
-        const updateCount = await fetch(
-          import.meta.env.VITE_API_GATEWAY_ENDPOINT + "/visitors",
-          {
-            method: "PUT",
-          }
-        );
-        const countObj = await new Response(updateCount.body).json();
-        sessionStorage.setItem("count", JSON.stringify(countObj.count));
-        setCount(countObj.count);
-      })();
-    }
-  }, []);
-
-  const [posts, setPosts] = useState([]);
-  useEffect(() => {
-    const fetchAndSetBlogs = async () => {
-      const postsList = await fetchBlogs();
-      setPosts(postsList);
-    };
-    fetchAndSetBlogs();
-  }, []);
   return (
     <>
       <div className="hidden md:block relative h-[100vh] w-[100vw] bg-slate-50 overflow-hidden">
@@ -120,12 +52,12 @@ function App() {
               transition={{ staggerChildren: 0.04 }}
             >
               <Bio />
-              <Visits count={count} />
+              <Visits />
               <Summary />
               <GitHubContributionHeatmap />
               <Projects />
               <Work />
-              <Blogs posts={posts} />
+              <Blogs />
               <Education />
               <Contact />
             </motion.div>
@@ -166,11 +98,11 @@ function App() {
               </div>
 
               <Bio />
-              <Visits count={count} />
+              <Visits />
               <Summary />
               <GitHubContributionHeatmap />
               <Projects />
-              <Blogs posts={posts} />
+              <Blogs />
               <Education />
               <Contact />
             </div>
