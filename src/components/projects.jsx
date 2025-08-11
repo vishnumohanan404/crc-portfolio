@@ -14,7 +14,10 @@ const Projects = () => {
       variants={variants}
     >
       <div className="w-full p-3 border-dotted border-spacing-2 border-x-0 border border-t-0 border-b-1 border-b-gray-400">
-        <p className="font-sans font-medium ">Projects</p>
+        <div className="flex justify-between items-center">
+          <p className="font-sans font-medium ">Projects</p>
+          <div className="text-sm text-gray-500">8 Projects</div>
+        </div>
       </div>
       <div className="p-3  text-gray-600 flex flex-col gap-3">
         <div className="flex justify-between flex-col gap-1">
@@ -113,8 +116,9 @@ const Projects = () => {
               Forrest Brazeal
             </a>{" "}
             <br />
-            <span className="font-medium">Tools used:</span> AWS S3,
-            CloudFront, Shield, Lambda, API Gateway, DynamoDB, CloudWatch, Terraform, Github Actions.
+            <span className="font-medium">Tools used:</span> AWS S3, CloudFront,
+            Shield, Lambda, API Gateway, DynamoDB, CloudWatch, Terraform, Github
+            Actions.
           </p>
           <div className="flex">
             <a

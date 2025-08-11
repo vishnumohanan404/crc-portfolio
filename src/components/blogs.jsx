@@ -25,17 +25,15 @@ const HOST = "vishnumohanan.hashnode.dev";
 const PAGE_SIZE = 5;
 
 export default function Blogs() {
-  const [posts, setPosts] = useState([]);
-  const [pageInfo, setPageInfo] = useState({
-    endCursor: null,
-    hasNextPage: false,
-  });
+  const [posts, setPosts] = useState({});
+  const [pageInfo, setPageInfo] = useState({});
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [totalPages, setTotalPages] = useState(1);
-  const [cursors, setCursors] = useState([null]); // page → cursor
+  const [totalDocuments, setTotalDocuments] = useState(0);
+  const [cursors, setCursors] = useState([null]); // page index → cursor
 
-  async function fetchPosts(after = null) {
+  async function fetchPosts(after = null, pageIndex = 0) {
     setLoading(true);
 
     const query = `
@@ -53,6 +51,7 @@ export default function Blogs() {
                 title
                 subtitle
                 url
+                publishedAt
               }
             }
           }
@@ -60,36 +59,87 @@ export default function Blogs() {
       }
     `;
 
-    const res = await fetch(HASHNODE_API, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        query,
-        variables: { host: HOST, first: PAGE_SIZE, after },
-      }),
-    });
+    try {
+      const res = await fetch(HASHNODE_API, {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json",
+          "Cache-Control": "no-cache"
+        },
+        body: JSON.stringify({
+          query,
+          variables: { host: HOST, first: PAGE_SIZE, after },
+        }),
+      });
 
-    const json = await res.json();
-    const postsData = json.data.publication.posts;
-    setPosts(postsData.edges);
-    setPageInfo(postsData.pageInfo);
-    setTotalPages(Math.ceil(postsData.totalDocuments / PAGE_SIZE));
-    setLoading(false);
-  }
+      const json = await res.json();
+      const postsData = json.data.publication.posts;
 
-  useEffect(() => {
-    fetchPosts(cursors[page - 1]);
-  }, [page]);
+      // Cache posts for this page
+      setPosts((prev) => ({
+        ...prev,
+        [pageIndex]: postsData.edges,
+      }));
 
-  function goToPage(p) {
-    if (p > page && pageInfo.hasNextPage && !cursors[p - 1]) {
-      // Store new cursor for this page
+      // Store pageInfo for this page
+      setPageInfo((prev) => ({
+        ...prev,
+        [pageIndex]: postsData.pageInfo,
+      }));
+
+      // Store cursor for next page
       setCursors((prev) => {
         const updated = [...prev];
-        updated[p - 1] = pageInfo.endCursor;
+        updated[pageIndex + 1] = postsData.pageInfo.endCursor;
         return updated;
       });
+
+      // Update totalDocuments and totalPages (only on first fetch to avoid inconsistencies)
+      if (pageIndex === 0) {
+        setTotalDocuments(postsData.totalDocuments);
+        setTotalPages(Math.ceil(postsData.totalDocuments / PAGE_SIZE));
+      }
+    } catch (error) {
+      console.error('Error fetching posts:', error);
+    } finally {
+      setLoading(false);
     }
+  }
+
+  // Initial fetch and refresh function
+  async function refreshPosts() {
+    // Clear cache and reset pagination
+    setPosts({});
+    setPageInfo({});
+    setCursors([null]);
+    setPage(1);
+    
+    // Fetch first page
+    await fetchPosts(null, 0);
+  }
+
+  // Fetch posts whenever page changes
+  useEffect(() => {
+    if (!posts[page - 1]) {
+      fetchPosts(cursors[page - 1], page - 1);
+    }
+  }, [page]);
+
+  // Initial load
+  useEffect(() => {
+    refreshPosts();
+  }, []);
+
+  // Auto-refresh every 5 minutes to catch new posts
+  useEffect(() => {
+    const interval = setInterval(() => {
+      refreshPosts();
+    }, 5 * 60 * 1000); // 5 minutes
+
+    return () => clearInterval(interval);
+  }, []);
+
+  function goToPage(p) {
     setPage(p);
   }
 
@@ -106,7 +156,6 @@ export default function Blogs() {
     let start = Math.max(1, page - 1);
     let end = Math.min(totalPages, start + maxButtons - 1);
 
-    // Adjust start if we’re near the end
     if (end - start < maxButtons - 1) {
       start = Math.max(1, end - maxButtons + 1);
     }
@@ -131,7 +180,12 @@ export default function Blogs() {
         {start > 1 && (
           <>
             <PaginationItem>
-              <PaginationLink onClick={() => goToPage(1)}>1</PaginationLink>
+              <PaginationLink 
+                onClick={() => goToPage(1)}
+                className="text-muted-foreground cursor-pointer"
+              >
+                1
+              </PaginationLink>
             </PaginationItem>
             {start > 2 && <PaginationEllipsis />}
           </>
@@ -141,7 +195,10 @@ export default function Blogs() {
           <>
             {end < totalPages - 1 && <PaginationEllipsis />}
             <PaginationItem>
-              <PaginationLink onClick={() => goToPage(totalPages)}>
+              <PaginationLink 
+                onClick={() => goToPage(totalPages)}
+                className="text-muted-foreground cursor-pointer"
+              >
                 {totalPages}
               </PaginationLink>
             </PaginationItem>
@@ -151,6 +208,8 @@ export default function Blogs() {
     );
   }
 
+  const currentPosts = posts[page - 1] || [];
+
   return (
     <motion.div
       className="bg-white border-zinc-200 border rounded-lg flex flex-col"
@@ -158,22 +217,36 @@ export default function Blogs() {
       variants={variants}
     >
       <div className="w-full p-3 border-dotted border-spacing-2 border-x-0 border border-t-0 border-b-1 border-b-gray-400">
-        <p className="font-sans font-medium">Blogs</p>
+        <div className="flex justify-between items-center">
+          <p className="font-sans font-medium">Blogs</p>
+          <div className="text-sm text-gray-500">
+            {totalDocuments} {totalDocuments === 1 ? 'Post' : 'Posts'}
+            {/* <button 
+              onClick={refreshPosts}
+              className="ml-2 text-blue-500 hover:underline disabled:opacity-50"
+              disabled={loading}
+              title="Refresh to get latest posts"
+            >
+              {loading ? 'Refreshing...' : 'Refresh'}
+            </button> */}
+          </div>
+        </div>
       </div>
 
       <div className="p-3 text-gray-600 flex flex-col gap-3">
-        {loading ? (
+        {loading && !currentPosts.length ? (
           <div className="text-sm text-gray-500 flex justify-center items-center p-8">
             <Spinner />
           </div>
         ) : (
-          posts.map(({ node }) => (
+          currentPosts.map(({ node }) => (
             <div className="flex justify-between flex-col gap-1" key={node.id}>
               <p className="font-semibold text-muted-foreground hover:underline underline-offset-4">
                 <a
                   className="text-blue-500 cursor-pointer flex gap-2 items-center"
                   href={node.url}
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {node.title}
                   <ExternalLinkIcon />
@@ -185,33 +258,35 @@ export default function Blogs() {
         )}
       </div>
 
-      <div className="border-t border-gray-200 p-2">
-        <Pagination className={"flex justify-end"}>
-          <PaginationContent>
-            <PaginationItem>
-              <PaginationPrevious
-                onClick={prevPage}
-                className={
-                  page === 1
-                    ? "pointer-events-none opacity-50 text-muted-foreground"
-                    : "text-muted-foreground cursor-pointer"
-                }
-              />
-            </PaginationItem>
-            {renderPageNumbers()}
-            <PaginationItem>
-              <PaginationNext
-                onClick={nextPage}
-                className={
-                  page === totalPages
-                    ? "pointer-events-none opacity-50 text-muted-foreground"
-                    : "text-muted-foreground cursor-pointer"
-                }
-              />
-            </PaginationItem>
-          </PaginationContent>
-        </Pagination>
-      </div>
+      {totalPages > 1 && (
+        <div className="border-t border-gray-200 p-2">
+          <Pagination className={"flex justify-end"}>
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationPrevious
+                  onClick={prevPage}
+                  className={
+                    page === 1
+                      ? "pointer-events-none opacity-50 text-muted-foreground"
+                      : "text-muted-foreground cursor-pointer"
+                  }
+                />
+              </PaginationItem>
+              {renderPageNumbers()}
+              <PaginationItem>
+                <PaginationNext
+                  onClick={nextPage}
+                  className={
+                    page === totalPages
+                      ? "pointer-events-none opacity-50 text-muted-foreground"
+                      : "text-muted-foreground cursor-pointer"
+                  }
+                />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+        </div>
+      )}
     </motion.div>
   );
 }
