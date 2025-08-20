@@ -106,7 +106,7 @@ export default function GitHubContributionHeatmap() {
                 #133598
               </a>
               <p>Raised my first PR</p>
-              <div className="flex justify-between gap-1.5">
+              <div className="justify-between gap-1.5 hidden sm:flex">
                 <div className="bg-blue-100 border-blue-500 border text-blue-500 font-medium text-[10px] leading-normal px-2 py-[1px] rounded-2xl">
                   kubectl
                 </div>
@@ -127,13 +127,13 @@ export default function GitHubContributionHeatmap() {
                 #133598
               </a>
               <p>PR got approved; wait for thaw</p>
-              <div className="flex justify-between gap-1.5">
+              <div className="justify-between gap-1.5 hidden sm:flex">
                 <div className="bg-green-100 border-green-500 border text-green-500 font-medium text-[10px] leading-normal px-2 py-[1px] rounded-2xl">
                   approved
                 </div>
               </div>
             </div>
-            <p className="text-xs text-gray-500 font-medium">19-08-25</p>
+            <p className="text-xs text-gray-500 font-medium whitespace-nowrap">19-08-25</p>
           </div>
         </div>
       </div>
