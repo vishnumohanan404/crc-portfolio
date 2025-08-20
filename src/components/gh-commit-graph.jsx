@@ -115,7 +115,7 @@ export default function GitHubContributionHeatmap() {
                 </div>
               </div>
             </div>
-            <p className="text-xs text-gray-500 font-medium">18-08-25</p>
+            <p className="text-xs text-gray-500 font-medium whitespace-nowrap">18-08-25</p>
           </div>
           <div className="flex justify-between items-center">
             <div className="flex gap-3 items-center">
