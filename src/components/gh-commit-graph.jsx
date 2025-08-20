@@ -93,13 +93,13 @@ export default function GitHubContributionHeatmap() {
       </div>
       <div className="w-full p-3 border-dotted border-spacing-2 border-x-0 text-gray-600 font-extralight border border-b-0 border-t-1 border-b-gray-400">
         <p className="font-semibold text-muted-foreground capitalize">
-          Kubernetes Contribution Timeline
+          Kubernetes Contributions Timeline
         </p>
         <div className="py-2 flex flex-col text-sm gap-1.5">
           <div className="flex justify-between items-center">
             <div className="flex gap-3 items-center">
               <a
-                className="text-blue-500 "
+                className="text-blue-500 hover:underline"
                 href="https://github.com/kubernetes/kubernetes/pull/133598"
                 target="_blank"
               >
@@ -115,25 +115,38 @@ export default function GitHubContributionHeatmap() {
                 </div>
               </div>
             </div>
-            <p className="text-xs text-gray-500 font-medium whitespace-nowrap">18-08-25</p>
+            <p className="text-xs text-gray-500 font-medium whitespace-nowrap">
+              18-08-25
+            </p>
           </div>
           <div className="flex justify-between items-center">
             <div className="flex gap-3 items-center">
               <a
-                className="text-blue-500 "
-                href="https://github.com/kubernetes/kubernetes/pull/133598"
+                className="text-blue-500 hover:underline"
+                href="https://github.com/kubernetes/kubernetes/pull/133598#:~:text=/lgtm-,/approve,-k8s%2Dci%2Drobot"
                 target="_blank"
               >
                 #133598
               </a>
-              <p>PR got approved; wait for thaw</p>
+              <p>
+                PR approved; waiting for{" "}
+                <a
+                  href="https://github.com/kubernetes/sig-release/blob/master/releases/release_phases.md#thaw"
+                  target="_blank"
+                  className="text-blue-500 hover:underline italic"
+                >
+                  Thaw
+                </a>
+              </p>
               <div className="justify-between gap-1.5 hidden sm:flex">
                 <div className="bg-green-100 border-green-500 border text-green-500 font-medium text-[10px] leading-normal px-2 py-[1px] rounded-2xl">
                   approved
                 </div>
               </div>
             </div>
-            <p className="text-xs text-gray-500 font-medium whitespace-nowrap">19-08-25</p>
+            <p className="text-xs text-gray-500 font-medium whitespace-nowrap">
+              19-08-25
+            </p>
           </div>
         </div>
       </div>
