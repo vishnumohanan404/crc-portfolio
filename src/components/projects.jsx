@@ -192,7 +192,7 @@ const Projects = () => {
           <p className="font-extralight text-sm leading-relaxed">
             A React application deployed on AWS EC2 with security groups.
             <br /> <span className="font-medium">Tools used:</span> Terraform,
-            Jenkins SonarQube, Trivy
+            Jenkins, SonarQube, Trivy
           </p>
           <a
             className="text-xs font-light text-blue-500"
