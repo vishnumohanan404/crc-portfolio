@@ -24,8 +24,8 @@ const Summary = () => {
           Later picked interest in
           <span className="font-medium italic"> Infrastructure</span> &
           <span className="font-medium italic"> DevOps</span> space, focusing on{" "}
-          <span className="font-medium italic">Kubernetes</span> and{" "}
-          <span className="font-medium italic">Cloud Native</span> tech.
+          <span className="font-medium italic">K8s</span> and{" "}
+          <span className="font-medium italic">CloudNative</span> tech.
         </p>
       </div>
     </motion.div>
