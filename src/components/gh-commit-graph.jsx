@@ -93,7 +93,7 @@ export default function GitHubContributionHeatmap() {
       </div>
       <div className="w-full p-3 border-dotted border-spacing-2 border-x-0 text-gray-600 font-extralight border border-b-0 border-t-1 border-b-gray-400">
         <p className="font-semibold text-muted-foreground capitalize">
-          Kubernetes Contributions Timeline
+          Kubernetes Open Source Contributions Timeline
         </p>
         <div className="py-2 flex flex-col text-sm gap-1.5">
           <div className="flex justify-between items-center">
