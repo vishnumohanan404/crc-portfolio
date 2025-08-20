@@ -17,15 +17,23 @@ const Work = () => {
       </div>
       <div className="p-3 space-y-2 text-gray-600  font-extralight text-sm">
         <p className="font-extralight text-sm">
-          Software Developer
+          <span className="font-semibold text-muted-foreground">
+            Software Developer
+          </span>
           <span className="pl-2 ml-2 text-xs font-medium  border-l-[1px] border-l-gray-300">
             Rhombuz.io <span className="font-medium italic"> (2021-2023)</span>
           </span>
         </p>
+        <p>Managed core AWS services to support internal infrastructures</p>
         <p>
-          {" "}
-          Helped build a design system, dashboards, charts, nodes and more.
+          Built a design system for T-Mobile, migrated over 40+ components,
+          reducing bundle size by 30%
         </p>
+        <p>
+          Collaborated with product managers to deliver scalable front-end
+          features.
+        </p>
+        <p>Contributed to agile planning, code reviews, and technical demos.</p>
       </div>
     </motion.div>
   );

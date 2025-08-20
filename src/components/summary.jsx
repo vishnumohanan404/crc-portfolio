@@ -22,8 +22,10 @@ const Summary = () => {
         </p>
         <p>
           Later picked interest in
-          <span className="font-medium italic"> DevOps</span> roles and now
-          trying to get into one.
+          <span className="font-medium italic"> Infrastructure</span> &
+          <span className="font-medium italic"> DevOps</span> space, focusing on{" "}
+          <span className="font-medium italic">K8s</span> and{" "}
+          <span className="font-medium italic">CloudNative</span> tech.
         </p>
       </div>
     </motion.div>

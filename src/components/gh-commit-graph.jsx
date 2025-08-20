@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CalendarHeatmap from "react-calendar-heatmap";
 import "react-calendar-heatmap/dist/styles.css";
+import { Badge } from "./ui/badge";
 import axios from "axios";
 import { motion } from "framer-motion";
 
@@ -89,6 +90,52 @@ export default function GitHubContributionHeatmap() {
           gutterSize={1.5}
           showOutOfRangeDays
         />
+      </div>
+      <div className="w-full p-3 border-dotted border-spacing-2 border-x-0 text-gray-600 font-extralight border border-b-0 border-t-1 border-b-gray-400">
+        <p className="font-semibold text-muted-foreground capitalize">
+          Kubernetes Contribution Timeline
+        </p>
+        <div className="py-2 flex flex-col text-sm gap-1.5">
+          <div className="flex justify-between items-center">
+            <div className="flex gap-3 items-center">
+              <a
+                className="text-blue-500 "
+                href="https://github.com/kubernetes/kubernetes/pull/133598"
+                target="_blank"
+              >
+                #133598
+              </a>
+              <p>Raised my first PR</p>
+              <div className="flex justify-between gap-1.5">
+                <div className="bg-blue-100 border-blue-500 border text-blue-500 font-medium text-[10px] leading-normal px-2 py-[1px] rounded-2xl">
+                  kubectl
+                </div>
+                <div className="bg-blue-100 border-blue-500 border text-blue-500 font-medium text-[10px] leading-normal px-2 py-[1px] rounded-2xl">
+                  sig-ctl
+                </div>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 font-medium">18-08-25</p>
+          </div>
+          <div className="flex justify-between items-center">
+            <div className="flex gap-3 items-center">
+              <a
+                className="text-blue-500 "
+                href="https://github.com/kubernetes/kubernetes/pull/133598"
+                target="_blank"
+              >
+                #133598
+              </a>
+              <p>PR got approved; wait for thaw</p>
+              <div className="flex justify-between gap-1.5">
+                <div className="bg-green-100 border-green-500 border text-green-500 font-medium text-[10px] leading-normal px-2 py-[1px] rounded-2xl">
+                  approved
+                </div>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 font-medium">19-08-25</p>
+          </div>
+        </div>
       </div>
     </motion.div>
   );
