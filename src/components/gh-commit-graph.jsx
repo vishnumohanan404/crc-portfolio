@@ -148,6 +148,26 @@ export default function GitHubContributionHeatmap() {
               19-08-25
             </p>
           </div>
+          <div className="flex justify-between items-center">
+            <div className="flex gap-3 items-center">
+              <a
+                className="text-blue-500 hover:underline"
+                href="https://github.com/kubernetes/kubernetes/pull/133598#:~:text=/lgtm-,/approve,-k8s%2Dci%2Drobot"
+                target="_blank"
+              >
+                #133598
+              </a>
+              <p>PR got merged 🎉</p>
+              <div className="justify-between gap-1.5 hidden sm:flex">
+                <div className="bg-purple-100 border-purple-500 border text-purple-500 font-medium text-[10px] leading-normal px-2 py-[1px] rounded-2xl">
+                  merged
+                </div>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 font-medium whitespace-nowrap">
+              27-08-25
+            </p>
+          </div>
         </div>
       </div>
     </motion.div>
