@@ -22,7 +22,7 @@ const Projects = () => {
       <div className="p-3  text-gray-600 flex flex-col gap-3">
         <div className="flex justify-between flex-col gap-1">
           <p className="font-semibold text-muted-foreground capitalize">
-            GitOps-Based K8s deployment on Hetzner VPS
+            GitOps K8s deployment on Hetzner VPS
           </p>
           <p className="font-extralight text-sm leading-relaxed">
             A three tier NodeJS application deployed in production grade
