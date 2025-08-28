@@ -165,7 +165,7 @@ export default function GitHubContributionHeatmap() {
               </div>
             </div>
             <p className="text-xs text-gray-500 font-medium whitespace-nowrap">
-              27-08-25
+              28-08-25
             </p>
           </div>
         </div>
