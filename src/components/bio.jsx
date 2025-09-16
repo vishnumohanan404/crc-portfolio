@@ -15,7 +15,7 @@ const Bio = () => {
       <div>
         <p className="font-sans">Vishnu Mohan</p>
         <p className="font-sans font-light text-sm text-gray-600">
-          Software Engineer
+          Software Engineer <span className="text-xs text-gray-400">driving customer success</span>
         </p>
       </div>
       <div className="flex-col gap-1 items-center md:flex hidden">
