@@ -54,9 +54,9 @@ function App() {
               <Bio />
               <Visits />
               <Summary />
-              <GitHubContributionHeatmap />
-              <Projects />
               <Work />
+              <Projects />
+              <GitHubContributionHeatmap />
               <Blogs />
               <Education />
               <Contact />
@@ -100,8 +100,9 @@ function App() {
               <Bio />
               <Visits />
               <Summary />
-              <GitHubContributionHeatmap />
+              <Work />
               <Projects />
+              <GitHubContributionHeatmap />
               <Blogs />
               <Education />
               <Contact />
