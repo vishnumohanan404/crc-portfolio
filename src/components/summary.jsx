@@ -17,15 +17,14 @@ const Summary = () => {
       </div>
       <div className="p-3 space-y-2 text-gray-600  font-extralight text-sm">
         <p className="font-sans">
-          Started building <span className="font-medium italic">UIs</span> from
+          Started building <span className="font-medium italic">websites</span> from
           2021.
         </p>
         <p>
           Later picked interest in
-          <span className="font-medium italic"> Infrastructure</span> &
-          <span className="font-medium italic"> Cloud</span> space, focusing on{" "}
-          <span className="font-medium italic">Customer success</span> and{" "}
-          <span className="font-medium italic">CloudNative</span> adoption.
+          <span className="font-medium"> Infrastructure</span> &
+          <span className="font-medium"> Cloud</span> space, focusing on{" "}
+          <span className="font-medium">CloudNative</span> technologies.
         </p>
       </div>
     </motion.div>

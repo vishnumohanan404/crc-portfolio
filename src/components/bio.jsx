@@ -15,7 +15,14 @@ const Bio = () => {
       <div>
         <p className="font-sans">Vishnu Mohan</p>
         <p className="font-sans font-light text-sm text-gray-600">
-          Software Engineer <span className="text-xs text-gray-400">driving customer success</span>
+          Software Engineer{" "}
+          <a
+            href="https://github.com/vishnumohanan404"
+            className="text-xs text-gray-400 hover:text-blue-500"
+            target="_blank"
+          >
+            110010100
+          </a>
         </p>
       </div>
       <div className="flex-col gap-1 items-center md:flex hidden">

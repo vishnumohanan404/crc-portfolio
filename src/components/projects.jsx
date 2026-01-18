@@ -22,25 +22,13 @@ const Projects = () => {
       <div className="p-3  text-gray-600 flex flex-col gap-3">
         <div className="flex justify-between flex-col gap-1">
           <p className="font-semibold text-muted-foreground capitalize">
-            GitOps K8s deployment on Hetzner VPS
+            forminit
           </p>
           <p className="font-extralight text-sm leading-relaxed">
-            A three tier NodeJS application deployed in production grade
-            multi-node <span className="font-medium"> kubeadm</span> cluster
-            with <span className="font-medium"> HPA</span>.
-            <br />
-            <span className="font-medium">Tools used:</span> Kubeadm, ArgoCD,
-            Helm, ECR, Traefik-Ingress, Cert-Manager, Prometheus & Grafana.
+            A feature rich WYSIWYG form builder created with React and
+            NodeJS, self-hosted in a highly scalable Kuberenetes infrastructure.
           </p>
           <div className="flex">
-            <a
-              className="text-xs font-light text-blue-500"
-              href="https://gitlab.com/forminit/forminit-manifests"
-              target="_blank"
-            >
-              GitLab
-            </a>
-            <div className="border-l h-4 mx-2"></div>
             <a
               className="text-xs font-light text-blue-500"
               href="https://forminit.bakedbash.xyz/"
@@ -50,7 +38,7 @@ const Projects = () => {
             </a>
           </div>
         </div>
-        <div className="flex justify-between flex-col gap-1">
+        {/* <div className="flex justify-between flex-col gap-1">
           <p className="font-semibold text-muted-foreground capitalize">
             Gitlab CI Pipeline with self-hosted runner
           </p>
@@ -201,7 +189,7 @@ const Projects = () => {
           >
             Github
           </a>
-        </div>
+        </div> */}
       </div>
     </motion.div>
   );

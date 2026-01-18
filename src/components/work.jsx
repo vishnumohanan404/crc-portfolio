@@ -13,7 +13,7 @@ const Work = () => {
       variants={variants}
     >
       <div className="w-full p-3 border-dotted border-spacing-2 border-x-0 border border-t-0 border-b-1 border-b-gray-400">
-        <p className="font-sans font-medium ">Work</p>
+        <p className="font-sans font-medium ">Career</p>
       </div>
       <div className="p-3 space-y-2 text-gray-600  font-extralight text-sm">
         <p className="font-extralight text-sm">
@@ -33,7 +33,25 @@ const Work = () => {
           Collaborated with product managers to deliver scalable front-end
           features.
         </p>
-        <p>Contributed to agile planning, code reviews, and technical demos.</p>
+      </div>
+      <div className="p-3 pt-0 space-y-2 text-gray-600  font-extralight text-sm">
+        <p className="font-extralight text-sm">
+          <span className="font-semibold text-muted-foreground">
+            Operations Engineer
+          </span>
+          <span className="pl-2 ml-2 text-xs font-medium  border-l-[1px] border-l-gray-300">
+            Exerp <span className="font-medium italic"> (2025-present)</span>
+          </span>
+        </p>
+        <p>
+          Ensuring the stability and reliability of Exerp’s cloud-based
+          infrastructure and applications
+        </p>
+        <p>
+          Working closely with the cloud team, client services, and engineering
+          teams to deliver a seamless product experience
+        </p>
+        <p>Contributing to agile planning, code reviews, and technical demos.</p>
       </div>
     </motion.div>
   );

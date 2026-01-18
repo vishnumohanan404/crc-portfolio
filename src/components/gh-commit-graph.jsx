@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import CalendarHeatmap from "react-calendar-heatmap";
+// import CalendarHeatmap from "react-calendar-heatmap";
 import "react-calendar-heatmap/dist/styles.css";
-import { Badge } from "./ui/badge";
+// import { Badge } from "./ui/badge";
 import axios from "axios";
 import { motion } from "framer-motion";
 
@@ -64,9 +64,9 @@ export default function GitHubContributionHeatmap() {
       variants={variants}
     >
       <div className="w-full p-3 border-dotted border-spacing-2 border-x-0 border border-t-0 border-b-1 border-b-gray-400">
-        <p className="font-sans font-medium ">Contributions</p>
+        <p className="font-sans font-medium ">Open Source Contributions Timeline</p>
       </div>
-      <div className="p-3 space-y-2 text-gray-600  font-extralight text-sm">
+      {/* <div className="p-3 space-y-2 text-gray-600  font-extralight text-sm">
         <CalendarHeatmap
           startDate={
             new Date(new Date().setFullYear(new Date().getFullYear() - 1))
@@ -90,10 +90,10 @@ export default function GitHubContributionHeatmap() {
           gutterSize={1.5}
           showOutOfRangeDays
         />
-      </div>
+      </div> */}
       <div className="w-full p-3 border-dotted border-spacing-2 border-x-0 text-gray-600 font-extralight border border-b-0 border-t-1 border-b-gray-400">
         <p className="font-semibold text-muted-foreground capitalize">
-          Kubernetes Open Source Contributions Timeline
+          Kubernetes
         </p>
         <div className="py-2 flex flex-col text-sm gap-1.5">
           <div className="flex justify-between items-center">
