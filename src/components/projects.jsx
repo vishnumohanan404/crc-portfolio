@@ -16,7 +16,6 @@ const Projects = () => {
       <div className="w-full p-3 border-dotted border-spacing-2 border-x-0 border border-t-0 border-b-1 border-b-gray-400">
         <div className="flex justify-between items-center">
           <p className="font-sans font-medium ">Projects</p>
-          <div className="text-sm text-gray-500">8 Projects</div>
         </div>
       </div>
       <div className="p-3  text-gray-600 flex flex-col gap-3">
@@ -25,8 +24,8 @@ const Projects = () => {
             forminit
           </p>
           <p className="font-extralight text-sm leading-relaxed">
-            A feature rich WYSIWYG form builder created with React and
-            NodeJS, self-hosted in a highly scalable Kuberenetes infrastructure.
+            A feature rich WYSIWYG form builder created with React and NodeJS,
+            self-hosted in a highly scalable Kuberenetes infrastructure.
           </p>
           <div className="flex">
             <a

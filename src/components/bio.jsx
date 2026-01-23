@@ -25,7 +25,7 @@ const Bio = () => {
           </a>
         </p>
       </div>
-      <div className="flex-col gap-1 items-center md:flex hidden">
+      <div className="flex-col gap-1 items-center md:hiddden hidden">
         <span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
           OPEN FOR WORK
         </span>
