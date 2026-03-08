@@ -21,16 +21,17 @@ const Projects = () => {
       <div className="p-3  text-gray-600 flex flex-col gap-3">
         <div className="flex justify-between flex-col gap-1">
           <p className="font-semibold text-muted-foreground capitalize">
-            forminit
+            LumiFeed
           </p>
           <p className="font-extralight text-sm leading-relaxed">
-            A feature rich WYSIWYG form builder created with React and NodeJS,
-            self-hosted in a highly scalable Kuberenetes infrastructure.
+            Lumifeed is an AI-powered feedback management SaaS. Embeddable
+            widget + dashboard + AI analytics + automations. Target:
+            India-first, global. Scale: 10,000 users.
           </p>
           <div className="flex">
             <a
               className="text-xs font-light text-blue-500"
-              href="https://forminit.bakedbash.xyz/"
+              href="https://lumifeed.app/"
               target="_blank"
             >
               Live
