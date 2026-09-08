@@ -37,21 +37,20 @@ const Work = () => {
       <div className="p-3 pt-0 space-y-2 text-gray-600  font-extralight text-sm">
         <p className="font-extralight text-sm">
           <span className="font-semibold text-muted-foreground">
-            Operations Engineer
+            Cloud Operations Engineer
           </span>
           <span className="pl-2 ml-2 text-xs font-medium  border-l-[1px] border-l-gray-300">
             Exerp <span className="font-medium italic"> (2025-present)</span>
           </span>
         </p>
+        <p>Building exerp's cloud infrastructure and platform solutions.</p>
         <p>
-          Ensuring the stability and reliability of Exerp’s cloud-based
-          infrastructure and applications
+          Ensuring the stability and reliability of Exerp’s cloud infrastructure
         </p>
         <p>
-          Working closely with the cloud team, client services, and engineering
-          teams to deliver a seamless product experience
+          Working closely with client services, and other engineering
+          teams to deliver a seamless infrastructure product experience
         </p>
-        <p>Contributing to agile planning, code reviews, and technical demos.</p>
       </div>
     </motion.div>
   );
