@@ -15,7 +15,7 @@ const Work = () => {
       <div className="w-full p-3 border-dotted border-spacing-2 border-x-0 border border-t-0 border-b-1 border-b-gray-400">
         <p className="font-sans font-medium ">Career</p>
       </div>
-      <div className="p-3 pt-0 space-y-2 text-gray-600  font-extralight text-sm">
+      <div className="p-3 space-y-2 text-gray-600  font-extralight text-sm">
         <p className="font-extralight text-sm">
           <span className="font-semibold text-muted-foreground">
             Cloud Operations Engineer
@@ -33,7 +33,7 @@ const Work = () => {
           teams to deliver a seamless infrastructure product experience
         </p>
       </div>
-      <div className="p-3 space-y-2 text-gray-600  font-extralight text-sm">
+      <div className="p-3  pt-0 space-y-2 text-gray-600  font-extralight text-sm">
         <p className="font-extralight text-sm">
           <span className="font-semibold text-muted-foreground">
             Software Developer
