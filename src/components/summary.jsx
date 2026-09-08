@@ -17,7 +17,7 @@ const Summary = () => {
       </div>
       <div className="p-3 space-y-2 text-gray-600  font-extralight text-sm">
         <p className="font-sans">
-          Software engineer by day, batman by night 🦇
+          Software engineer by day, Batman by night. Somehow neither pays enough 🦇
         </p>
         <p className="leading-6">
           Working in
