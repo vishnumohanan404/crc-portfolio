@@ -1,6 +1,8 @@
 import "./App.css";
 import Bio from "./components/bio";
-import Blogs from "./components/blogs";
+// Hidden: Hashnode moved its GraphQL API behind a Pro plan (2026-05-13), so
+// gql.hashnode.com 301-redirects and the fetch fails CORS. Restore when replaced.
+// import Blogs from "./components/blogs";
 import Contact from "./components/contact";
 import Education from "./components/education";
 import GitHubContributionHeatmap from "./components/gh-commit-graph";
@@ -57,7 +59,7 @@ function App() {
               <Work />
               <Projects />
               <GitHubContributionHeatmap />
-              <Blogs />
+              {/* <Blogs /> */}
               <Education />
               <Contact />
             </motion.div>
@@ -103,7 +105,7 @@ function App() {
               <Work />
               <Projects />
               <GitHubContributionHeatmap />
-              <Blogs />
+              {/* <Blogs /> */}
               <Education />
               <Contact />
             </div>
